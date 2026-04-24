@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adiwiyata Guardian: Tactical Strike</title>
+    
+    <!-- Library Eksternal (Three.js dan Tailwind untuk utilitas) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Menghubungkan ke file CSS terpisah -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Menu Utama / Layar Instruksi -->
+    <div id="instructions">
+        <h1 class="text-8xl font-black mb-2 tracking-tighter italic text-zinc-900">
+            ADIWIYATA <span class="text-green-600">STRIKE</span>
+        </h1>
+        <p class="text-xl font-bold tracking-[0.5em] mb-12 text-zinc-500 underline decoration-green-500 decoration-4">
+            SQUADRON BUMI - MISSION: CLEAN SLATE
+        </p>
+        
+        <div class="grid grid-cols-3 gap-6 max-w-4xl mb-12">
+            <div class="bg-white p-6 shadow-2xl border-t-4 border-green-600">
+                <h3 class="font-black text-xl mb-2 italic">01. RIFLE</h3>
+                <p class="text-xs text-zinc-500 uppercase">Akurasi tinggi untuk target jauh.</p>
+            </div>
+            <div class="bg-white p-6 shadow-2xl border-t-4 border-green-600">
+                <h3 class="font-black text-xl mb-2 italic">02. SHOTGUN</h3>
+                <p class="text-xs text-zinc-500 uppercase">Semburan masif jarak dekat.</p>
+            </div>
+            <div class="bg-white p-6 shadow-2xl border-t-4 border-green-600">
+                <h3 class="font-black text-xl mb-2 italic">03. RAPID</h3>
+                <p class="text-xs text-zinc-500 uppercase">Kecepatan tembak ekstrim.</p>
+            </div>
+        </div>
+
+        <button class="btn-play" onclick="startGame()">START DEPLOYMENT</button>
+        <p class="mt-8 text-zinc-400 font-bold uppercase tracking-widest">
+            W,A,S,D Gerak | Klik Tembak | 1,2,3 Ganti Senjata
+        </p>
+    </div>
+
+    <!-- HUD Taktis (Skor & Informasi Senjata) -->
+    <div id="gui">
+        <div class="hud-panel">
+            <div class="text-xs font-bold text-green-300">BIO-RADAR SCORE</div>
+            <div class="text-4xl font-black italic">
+                <span id="score">0</span><span class="text-sm opacity-50"> / 25</span>
+            </div>
+        </div>
+        
+        <div class="hud-panel">
+            <div class="text-xs font-bold text-green-300">WEAPON SYSTEM</div>
+            <div class="text-2xl font-black italic" id="weapon-name">SEED RIFLE</div>
+            <div class="weapon-slot">
+                <div id="slot1" class="slot active">1</div>
+                <div id="slot2" class="slot">2</div>
+                <div id="slot3" class="slot">3</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crosshair Tengah -->
+    <div id="crosshair">
+        <div class="ch-line ch-v" style="top: 0;"></div>
+        <div class="ch-line ch-v" style="bottom: 0;"></div>
+        <div class="ch-line ch-h" style="left: 0;"></div>
+        <div class="ch-line ch-h" style="right: 0;"></div>
+    </div>
+
+    <!-- Layar Kemenangan -->
+    <div id="ending-screen">
+        <h1 class="text-9xl font-black italic mb-4 text-zinc-900">VICTORY</h1>
+        <p class="text-2xl font-light tracking-widest text-zinc-500 mb-10 uppercase">Sekolah Adiwiyata Kembali Asri</p>
+        <button class="btn-play" onclick="location.reload()">RE-DEPLOY</button>
+    </div>
+
+    <!-- Menghubungkan ke file JavaScript terpisah -->
+    <script src="script.js"></script>
+</body>
+</html>
